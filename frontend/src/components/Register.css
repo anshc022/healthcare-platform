@@ -1,0 +1,82 @@
+/* src/components/Register.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .register-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #9dc2f8 0%, #a6a0e8 100%); /* Light background color */
+  }
+  
+  .register-card {
+    background-color: rgba(255, 255, 255, 0.505); /* White background for the card */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .register-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50; /* Dark blue color */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Space between inputs */
+  }
+  
+  .register-input {
+    padding: 12px;
+    border: 1px solid #b0c4de; /* Light gray border */
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .register-input:focus {
+    border-color: #3498db; /* Focused border color */
+  }
+  
+  .register-button {
+    padding: 12px;
+    background-color: #3498db; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .register-button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+  }
+  
+  .register-footer {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .register-link {
+    color: #3498db; /* Link color */
+    text-decoration: underline;
+  }
+  
+  .register-link:hover {
+    text-decoration: none; /* Remove underline on hover */
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+}

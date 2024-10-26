@@ -1,0 +1,176 @@
+.landing-container {
+    margin: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(135deg, #a8c3ec 0%, #dca0e8 100%);
+    background-size: 200% 200%; /* Allows for smoother animation */
+    animation: gradientAnimation 15s ease infinite; /* Apply the animation */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%; /* Starting position */
+    }
+    50% {
+        background-position: 100% 50%; /* Midway position */
+    }
+    100% {
+        background-position: 0% 50%; /* Ending position, loops back */
+    }
+}
+
+
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.landing-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.landing-header h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.landing-header p {
+    font-size: 1.2rem;
+    color: #120202;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.landing-features {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.landing-features h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px); /* Blurring effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Slight border for definition */
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Darker border on hover */
+}
+
+.feature:hover {
+    backdrop-filter: blur(15px); /* More blur on hover */
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.feature p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.Btn-Container {
+    display: flex;
+    width: 200px;
+    height: 60px;
+    background-color: #4caf50;
+    border-radius: 30px;
+    box-shadow: 0px 5px 15px rgba(76, 175, 80, 0.3);
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    margin: 40px auto;
+    transition: all 0.3s ease;
+}
+
+.Btn-Container:hover {
+    background-color: #45a049;
+    box-shadow: 0px 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+.icon-Container {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.text {
+    flex-grow: 1;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.landing-footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #000000;
+    font-size: 0.9rem;
+}
+.fancy {
+    font-size: 3rem; /* You can adjust the size as needed */
+    font-weight: bold; /* Make the font bold */
+    font-family: 'Arial', sans-serif; /* Use a different font */
+    color: transparent; /* Ensure the text color is transparent */
+    
+    @supports (background-clip: text) or (-webkit-background-clip: text) {
+        background-image: url("data:image/svg+xml,%3Csvg width='2250' height='900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Cpath fill='%2300A080' d='M0 0h2255v899H0z'/%3E%3Ccircle cx='366' cy='207' r='366' fill='%2300FDCF'/%3E%3Ccircle cx='1777.5' cy='318.5' r='477.5' fill='%2300FDCF'/%3E%3Ccircle cx='1215' cy='737' r='366' fill='%23008060'/%3E%3C/g%3E%3C/svg%3E%0A");
+        background-size: 110% auto;
+        background-position: center;
+        -webkit-background-clip: text; /* Clip the background to the text */
+        background-clip: text; /* Clip the background to the text */
+    }
+    
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    animation: glow 1.5s infinite alternate; /* Glow animation */
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 2px 2px 4px rgba(255, 111, 97, 0.5), 0 0 25px rgba(255, 111, 97, 0.5), 0 0 50px rgba(255, 111, 97, 0.5);
+    }
+    100% {
+        text-shadow: 2px 2px 4px rgba(106, 90, 205, 0.5), 0 0 25px rgba(106, 90, 205, 0.5), 0 0 50px rgba(106, 90, 205, 0.5);
+    }
+}
+

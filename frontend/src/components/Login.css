@@ -1,0 +1,215 @@
+/* src/components/Login.css */
+
+/* Apply gradient background with animation */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #a8c3ec 0%, #dca0e8 100%);
+  background-size: 200% 200%;
+  animation: gradientAnimation 4s ease infinite;
+}
+
+/* Keyframe animation for the background gradient */
+@keyframes gradientAnimation {
+  0% { background-position: 50% 0%; }
+  50% { background-position: 50% 100%; }
+  100% { background-position: 50% 0%; }
+}
+
+/* Center the login card container */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Login card styling */
+.login-card {
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Login title styling */
+.login-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Form layout */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Styling for input fields */
+.login-input {
+  padding: 14px;
+  border: 1px solid #b0c4de;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+  font-size: 16px;
+  padding-left: 35px; /* Space for icon */
+}
+
+.login-input:focus {
+  border-color: #3498db;
+}
+
+/* Label for password with toggle icon inside */
+.password-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Submit button styling */
+/* Adjust input and button widths */
+.login-input,
+.login-button {
+  width: 100%;
+  padding: 14px; /* Keep padding consistent */
+  font-size: 16px;
+  box-sizing: border-box; /* Ensure consistent sizing */
+}
+
+/* Maintain login button styling */
+.login-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 600;
+}
+
+.login-button:hover {
+  background-color: #2980b9;
+}
+
+.login-button:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+.login-button:active {
+  background-color: #2471a3;
+}
+
+
+/* Login footer and links styling */
+.login-footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+.login-link {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.login-link:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+/* Icon container and styling */
+.input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Icon styling for input fields */
+/* Icon container and styling */
+.input-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Adjust styling for username and password input fields */
+.login-input {
+  padding: 14px 14px 14px 40px; /* Adjust padding: top, right, bottom, left */
+  border: 1px solid #b0c4de;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+  font-size: 16px;
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Ensure consistent sizing */
+}
+
+/* Icon styling for input fields */
+.icon {
+  position: absolute;
+  left: 10px; /* Space from left */
+  color: #888; /* Customize color */
+  font-size: 18px; /* Adjust size as needed */
+}
+
+/* Password toggle icon styling */
+.toggle-password-icon {
+  position: absolute;
+  right: 10px; /* Space from right */
+  color: #888;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.toggle-password-icon:hover {
+  color: #3498db; /* Change color on hover */
+}
+
+
+/* Placeholder text styling */
+.login-input::placeholder {
+  color: #b0c4de;
+}
+
+.login-input:focus::placeholder {
+  color: #3498db;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 30px 20px;
+    max-width: 90%;
+  }
+
+  .login-title {
+    font-size: 24px;
+  }
+
+  .login-input,
+  .login-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .login-footer {
+    font-size: 12px;
+  }
+}
