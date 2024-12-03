@@ -174,3 +174,139 @@
     }
 }
 
+.medical-theme {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e3eeff 100%);
+  position: relative;
+  color: #2c3e50;
+  overflow: hidden;
+}
+
+.medical-theme::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(30deg, #ffffff 12%, transparent 12.5%, transparent 87%, #ffffff 87.5%, #ffffff),
+    linear-gradient(150deg, #ffffff 12%, transparent 12.5%, transparent 87%, #ffffff 87.5%, #ffffff),
+    linear-gradient(30deg, #ffffff 12%, transparent 12.5%, transparent 87%, #ffffff 87.5%, #ffffff),
+    linear-gradient(150deg, #ffffff 12%, transparent 12.5%, transparent 87%, #ffffff 87.5%, #ffffff),
+    linear-gradient(60deg, #ffffff77 25%, transparent 25.5%, transparent 75%, #ffffff77 75%, #ffffff77);
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.landing-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+.medical-overlay {
+  display: none; /* Remove the overlay since we're using a different background approach */
+}
+
+.medical-title {
+  color: #0070c0;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.medical-subtitle {
+  font-size: 1.2rem;
+  color: #34495e;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Shared Button Styles */
+.shared-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
+  margin: 20px auto;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #0070c0 0%, #005799 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 112, 192, 0.3);
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 112, 192, 0.4);
+  background: linear-gradient(135deg, #005799 0%, #004476 100%);
+}
+
+.button-text {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  z-index: 1;
+}
+
+.button-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.shared-button:hover .button-icon {
+  transform: translateX(3px);
+}
+
+/* Remove old button styles */
+.medical-button {
+  display: none;
+}
+
+.medical-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.medical-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.services-title {
+  color: #0070c0;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.medical-footer {
+  background: #0070c0;
+  color: white;
+  padding: 1.5rem;
+  margin-top: 4rem;
+}
+

@@ -5,6 +5,16 @@ import { fetchUserProfile, fetchReminders, addReminder, searchHospitalsByState, 
 import Modal from './Modal.js';
 import { FiLogOut } from 'react-icons/fi';
 
+const INDIAN_STATES = [
+    'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 
+    'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 
+    'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 
+    'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 
+    'Uttarakhand', 'West Bengal', 'Andaman and Nicobar Islands', 'Chandigarh', 
+    'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Jammu and Kashmir', 'Ladakh', 
+    'Lakshadweep', 'Puducherry'
+];
+
 const Dashboard = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -180,13 +190,18 @@ const Dashboard = () => {
                     <div className="card-container">
                         <h2>Search Hospitals</h2>
                         <div className="flex items-center space-x-4">
-                            <input
-                                type="text"
-                                placeholder="State"
+                            <select
                                 value={searchState}
                                 onChange={(e) => setSearchState(e.target.value)}
                                 className="p-2 border border-gray-300 rounded-md w-1/2"
-                            />
+                            >
+                                <option value="">Select State</option>
+                                {INDIAN_STATES.map((state) => (
+                                    <option key={state} value={state}>
+                                        {state}
+                                    </option>
+                                ))}
+                            </select>
                             <input
                                 type="text"
                                 placeholder="City (optional)"
@@ -197,48 +212,72 @@ const Dashboard = () => {
                             <button
                                 onClick={handleSearchHospitals}
                                 className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
+                                disabled={!searchState}
                             >
                                 Search
                             </button>
                         </div>
 
-                        {hospitals.length > 0 && (
-                            <div className="hospitals-list mt-4">
-                                <h3 className="text-xl font-semibold mb-2">Found Hospitals:</h3>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                                    {hospitals.map((hospital) => (
-                                        <div key={hospital.id} className="border p-4 rounded-md shadow-md">
-                                            <h4 className="text-lg font-semibold">{hospital.name}</h4>
-                                            <p className="text-gray-600"><strong>Address:</strong> {hospital.address}, {hospital.city}, {hospital.state}</p>
-                                            <p className="text-gray-600"><strong>Contact:</strong> {hospital.contact_number}</p>
-                                            <p className="text-gray-600"><strong>Email:</strong> {hospital.email}</p>
-                                            <p className="text-gray-600"><strong>Type:</strong> {hospital.hospital_type}</p>
-                                            <p className="text-gray-600"><strong>Location:</strong> {hospital.location}</p>
-                                            <div className="mt-2">
-                                                <a
-                                                    href={`https://www.google.com/maps/search/?api=1&query=${hospital.location}`}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="text-blue-500 hover:underline mr-2"
-                                                >
-                                                    📍 View on Google Maps
-                                                </a>
-                                                {hospital.website && (
+                        <div className="hospitals-list mt-4">
+                            {hospitals.length > 0 ? (
+                                <>
+                                    <h3 className="text-xl font-semibold mb-2">Found Hospitals:</h3>
+                                    <div className="hospitals-grid">
+                                        {hospitals.map((hospital) => (
+                                            <div key={hospital.id} className="hospital-card">
+                                                <div className="hospital-header">
+                                                    <h4>{hospital.name}</h4>
+                                                    <span className="hospital-type">{hospital.hospital_type}</span>
+                                                </div>
+                                                <div className="hospital-info">
+                                                    <div className="info-row">
+                                                        <i className="fas fa-map-marker-alt"></i>
+                                                        <p>{hospital.address}, {hospital.city}, {hospital.state}</p>
+                                                    </div>
+                                                    <div className="info-row">
+                                                        <i className="fas fa-phone"></i>
+                                                        <p>{hospital.contact_number}</p>
+                                                    </div>
+                                                    <div className="info-row">
+                                                        <i className="fas fa-envelope"></i>
+                                                        <p>{hospital.email}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="hospital-actions">
                                                     <a
-                                                        href={hospital.website}
+                                                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hospital.location)}`}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="text-blue-500 hover:underline"
+                                                        className="action-button maps-button"
                                                     >
-                                                        🌐 Visit Website
+                                                        <i className="fas fa-map-marked-alt"></i>
+                                                        View on Maps
                                                     </a>
-                                                )}
+                                                    {hospital.website && (
+                                                        <a
+                                                            href={hospital.website}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="action-button website-button"
+                                                        >
+                                                            <i className="fas fa-globe"></i>
+                                                            Visit Website
+                                                        </a>
+                                                    )}
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </div>
+                                </>
+                            ) : searchState && (
+                                <div className="no-hospitals-message">
+                                    <i className="fas fa-hospital-alt"></i>
+                                    <h3>No Hospitals Found</h3>
+                                    <p>We couldn't find any hospitals in {searchCity ? `${searchCity}, ` : ''}{searchState}</p>
+                                    <p>Try searching in a different location or contact our support for assistance.</p>
                                 </div>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </div>
 
                     {/* Modal for adding reminders */}

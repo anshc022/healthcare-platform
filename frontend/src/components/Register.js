@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { registerUser } from '../services/api';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import './Register.css';
 
 const Register = () => {
@@ -85,7 +87,12 @@ const Register = () => {
                         required
                         className="register-input"
                     />
-                    <button type="submit" className="register-button">Register</button>
+                    <button type="submit" className="shared-button primary-button">
+                        <span className="button-text">Create Account</span>
+                        <span className="button-icon">
+                            <FontAwesomeIcon icon={faUserPlus} className="icon" />
+                        </span>
+                    </button>
                 </form>
             </div>
         </div>

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../services/api';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faLock, faEye, faEyeSlash, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import './Login.css';
 
 const Login = () => {
@@ -63,7 +63,12 @@ const Login = () => {
                             onClick={() => setShowPassword(!showPassword)}
                         />
                     </div>
-                    <button type="submit" className="login-button">Login</button>
+                    <button type="submit" className="shared-button primary-button">
+                        <span className="button-text">Sign In</span>
+                        <span className="button-icon">
+                            <FontAwesomeIcon icon={faArrowRight} />
+                        </span>
+                    </button>
                 </form>
                 <p className="login-footer">
                     Don't have an account?{' '}
