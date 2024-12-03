@@ -1,0 +1,14 @@
+
+services:
+  - type: web
+    name: healthcare-platform
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
+      - key: DATABASE_URL
+        value: postgresql://postgres:fzUgyGmhckqABmzYgNEJIEPTRKlFSyFx@junction.proxy.rlwy.net:29865/railway
+      - key: JWT_SECRET
+        sync: false

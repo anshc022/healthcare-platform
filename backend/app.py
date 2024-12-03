@@ -12,8 +12,8 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app, supports_credentials=True)
 
-# SQLite configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///healthcare.db'
+# Update database configuration
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://postgres:fzUgyGmhckqABmzYgNEJIEPTRKlFSyFx@junction.proxy.rlwy.net:29865/railway')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize db with app
