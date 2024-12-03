@@ -1,11 +1,13 @@
 import React from 'react';
-import './Modal.css'; // Ensure you have this CSS file for styling
-import { FaTimes } from 'react-icons/fa'; // Import the close icon
+import './Modal.css';
+import { FaTimes } from 'react-icons/fa';
 
 const Modal = ({ 
-    isOpen, 
+    isOpen = true, 
     onClose, 
     onSubmit, 
+    children,
+    // Optional form-specific props
     medication, 
     setMedication, 
     reminderTime, 
@@ -15,6 +17,21 @@ const Modal = ({
     endDate, 
     setEndDate 
 }) => {
+    // If children are provided, render them instead of the form
+    if (children) {
+        return (
+            <div className={`modal ${isOpen ? 'open' : ''}`}>
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <FaTimes className="close" onClick={onClose} />
+                    </div>
+                    {children}
+                </div>
+            </div>
+        );
+    }
+
+    // Otherwise, render the form
     return (
         <div className={`modal ${isOpen ? 'open' : ''}`}>
             <div className="modal-content">
@@ -28,7 +45,7 @@ const Modal = ({
                         type="text" 
                         id="medication" 
                         value={medication} 
-                        onChange={(e) => setMedication(e.target.value)} 
+                        onChange={(e) => setMedication?.(e.target.value)} 
                         placeholder="Enter medication name"
                         className="form-control"
                     />
@@ -39,7 +56,7 @@ const Modal = ({
                         type="time" 
                         id="reminderTime" 
                         value={reminderTime} 
-                        onChange={(e) => setReminderTime(e.target.value)} 
+                        onChange={(e) => setReminderTime?.(e.target.value)} 
                         className="form-control"
                     />
                 </div>
@@ -49,7 +66,7 @@ const Modal = ({
                         type="date" 
                         id="startDate" 
                         value={startDate} 
-                        onChange={(e) => setStartDate(e.target.value)} 
+                        onChange={(e) => setStartDate?.(e.target.value)} 
                         className="form-control"
                     />
                 </div>
@@ -59,7 +76,7 @@ const Modal = ({
                         type="date" 
                         id="endDate" 
                         value={endDate} 
-                        onChange={(e) => setEndDate(e.target.value)} 
+                        onChange={(e) => setEndDate?.(e.target.value)} 
                         className="form-control"
                     />
                 </div>
